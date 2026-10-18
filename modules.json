@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "id": "sensi-ff-calculator",
+    "name": "SENSI FF CALCULATOR 🔫🧱",
+    "description": "Te recomienda una sensibilidad calibrada para tu telefono y pegar como todo un insano",
+    "version": "1.0.0",
+    "author": ".",
+    "category": "SENSI",
+    "icon": "📦",
+    "tags": [
+      "Modulo"
+    ],
+    "changelog": "Sin notas",
+    "downloadUrl": "./modules/sensi-ff-calculator.zip",
+    "sha256": "ead91a2630fbbc215c8d8901c5768e911c24de53b8504970aef4710cb4918e57",
+    "size": 5331,
+    "downloads": 0,
+    "updatedAt": "2026-10-18T19:45:50.480Z",
+    "authorRole": "creator",
+    "authorProfile": {
+      "displayName": "@pairixl",
+      "verified": true,
+      "verifiedAt": "2026-10-18T19:45:50.480Z",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@pairixl?_r=1&_t=ZS-9AfMSMO1ICj",
+        "youtube": "**Discord:**",
+        "discord": "**Telegram:**",
+        "telegram": "**WhatsApp:**",
+        "whatsapp": "### Descripción"
+      }
+    }
+  }
+]
