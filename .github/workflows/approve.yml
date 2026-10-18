@@ -1,0 +1,118 @@
+name: Procesar módulo aprobado
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  approve:
+    if: github.event.label.name == 'approved-module'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Procesar aprobación
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const crypto = require('crypto');
+            const body = context.payload.issue.body || '';
+
+            const get = (label) => {
+              const m = body.match(new RegExp(`\\*\\*${label}:\\*\\*\\s*(.+)`));
+              return m ? m[1].trim() : '';
+            };
+            const section = (name) => {
+              const re = new RegExp(`### ${name}\\n([\\s\\S]*?)(?=###|$)`);
+              const m = body.match(re);
+              return m ? m[1].trim() : '';
+            };
+
+            const name        = get('Nombre');
+            const version     = get('Versión') || '1.0.0';
+            const author      = get('Autor');
+            const category    = get('Categoría') || 'General';
+            const icon        = get('Icono') || '📦';
+            const tagsRaw     = get('Tags');
+            const zipUrl      = get('ZIP');
+            const description = section('Descripción');
+            const changelog   = section('Notas de versión') || 'Sin notas';
+            const displayName = get('Display') || author;
+            const tiktok      = get('TikTok');
+            const youtube     = get('YouTube');
+            const discord     = get('Discord');
+            const telegram    = get('Telegram');
+            const whatsapp    = get('WhatsApp');
+
+            if (!name || !zipUrl) { core.setFailed('Faltan campos obligatorios'); return; }
+
+            const id = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const fileName = `${id}.zip`;
+
+            console.log(`Descargando ${zipUrl}`);
+            const resp = await fetch(zipUrl, { redirect: 'follow', headers: { 'User-Agent': 'modules-bot' } });
+            if (!resp.ok) { core.setFailed(`No se pudo descargar (HTTP ${resp.status})`); return; }
+            const buffer = Buffer.from(await resp.arrayBuffer());
+
+            if (buffer.length < 4 || buffer[0] !== 0x50 || buffer[1] !== 0x4B) {
+              core.setFailed('El archivo no es un ZIP válido'); return;
+            }
+            if (buffer.length > 100 * 1024 * 1024) { core.setFailed('ZIP supera 100 MB'); return; }
+
+            const sha256 = crypto.createHash('sha256').update(buffer).digest('hex');
+
+            fs.mkdirSync('modules', { recursive: true });
+            fs.writeFileSync(`modules/${fileName}`, buffer);
+
+            let modules = [];
+            if (fs.existsSync('modules.json')) modules = JSON.parse(fs.readFileSync('modules.json', 'utf8'));
+            if (modules.some(m => m.id === id)) { core.setFailed('Ya existe ese id'); return; }
+
+            modules.push({
+              id, name, description, version, author, category, icon,
+              tags: tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [],
+              changelog,
+              downloadUrl: `./modules/${fileName}`,
+              sha256,
+              size: buffer.length,
+              downloads: 0,
+              updatedAt: new Date().toISOString(),
+              authorRole: 'creator',
+              authorProfile: {
+                displayName,
+                verified: true,
+                verifiedAt: new Date().toISOString(),
+                socials: { tiktok, youtube, discord, telegram, whatsapp }
+              }
+            });
+
+            fs.writeFileSync('modules.json', JSON.stringify(modules, null, 2));
+
+      - name: Commit y push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add modules/ modules.json
+          git diff --staged --quiet || git commit -m "Add module from #${{ github.event.issue.number }}"
+          git push
+
+      - name: Cerrar Issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '✅ Módulo aprobado, verificado y publicado automáticamente.'
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner, repo: context.repo.repo,
+              issue_number: context.issue.number, state: 'closed'
+            });
