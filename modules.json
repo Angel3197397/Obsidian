@@ -1,1 +1,33 @@
-[]
+[
+  {
+    "id": "fuuf",
+    "name": "Fuuf",
+    "description": "Uir",
+    "version": "1.0.0",
+    "author": "Angel",
+    "category": "General",
+    "icon": "📦",
+    "tags": [
+      "Jdjd"
+    ],
+    "changelog": "Sin notas",
+    "downloadUrl": "./modules/fuuf.zip",
+    "sha256": "95f06ed6ce1966f4a0145644f4c356a3e440e481405ecddc0230c6a6bcf83149",
+    "size": 2098,
+    "downloads": 0,
+    "updatedAt": "2026-10-18T19:29:47.348Z",
+    "authorRole": "creator",
+    "authorProfile": {
+      "displayName": "@pepe",
+      "verified": true,
+      "verifiedAt": "2026-10-18T19:29:47.348Z",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@nagau410?_r=1&_t=ZS-9AfIEsI58DN",
+        "youtube": "**Discord:**",
+        "discord": "**Telegram:**",
+        "telegram": "**WhatsApp:**",
+        "whatsapp": "### Descripción"
+      }
+    }
+  }
+]
