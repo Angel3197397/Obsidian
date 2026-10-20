@@ -14,7 +14,7 @@
     "downloadUrl": "./modules/sensi-ff-calculator.zip",
     "sha256": "ead91a2630fbbc215c8d8901c5768e911c24de53b8504970aef4710cb4918e57",
     "size": 5331,
-    "downloads": 347,
+    "downloads": 43,
     "updatedAt": "2026-10-18T19:45:50.480Z",
     "authorRole": "creator",
     "authorProfile": {
@@ -45,7 +45,7 @@
     "downloadUrl": "./modules/aim-lock.zip",
     "sha256": "4aba3e888844ba25ffa20becdfed593dd40cdb0d3ab54ad30a7b4b8c76792160",
     "size": 10630,
-    "downloads": 1833,
+    "downloads":76,
     "updatedAt": "2026-10-20T02:59:56.991Z",
     "authorRole": "creator",
     "authorProfile": {
@@ -76,7 +76,7 @@
     "downloadUrl": "./modules/obsidian-apk.zip",
     "sha256": "59665b26686eece63a342e71a4a28d34dc9b94f120e6d1810b65ab73278efbfc",
     "size": 10074975,
-    "downloads": 0,
+    "downloads": 85,
     "updatedAt": "2026-10-20T19:57:41.157Z",
     "authorRole": "creator",
     "authorProfile": {
