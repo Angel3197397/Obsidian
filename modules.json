@@ -60,5 +60,36 @@
         "whatsapp": "https://whatsapp.com/channel/0029VbDcv2eJZg49jtJ0eX01"
       }
     }
+  },
+  {
+    "id": "obsidian-apk",
+    "name": "Obsidian apk",
+    "description": "Para instalar lo modulos",
+    "version": "1.0.0",
+    "author": ".",
+    "category": "Instalar los modulos",
+    "icon": "📦",
+    "tags": [
+      "**ZIP:** https://github.com/Angel3197397/Module/raw/refs/heads/main/Obsidian.apk"
+    ],
+    "changelog": "Sin notas",
+    "downloadUrl": "./modules/obsidian-apk.zip",
+    "sha256": "59665b26686eece63a342e71a4a28d34dc9b94f120e6d1810b65ab73278efbfc",
+    "size": 10074975,
+    "downloads": 0,
+    "updatedAt": "2026-10-20T19:57:41.157Z",
+    "authorRole": "creator",
+    "authorProfile": {
+      "displayName": "@pairixl",
+      "verified": true,
+      "verifiedAt": "2026-10-20T19:57:41.157Z",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@pairixl?_r=1&_t=ZS-9AfMSMO1ICj",
+        "youtube": "**Discord:**",
+        "discord": "**Telegram:**",
+        "telegram": "**WhatsApp:** https://whatsapp.com/channel/0029VbDcv2eJZg49jtJ0eX01",
+        "whatsapp": "https://whatsapp.com/channel/0029VbDcv2eJZg49jtJ0eX01"
+      }
+    }
   }
 ]
