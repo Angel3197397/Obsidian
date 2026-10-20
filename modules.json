@@ -29,5 +29,36 @@
         "whatsapp": "### Descripción"
       }
     }
+  },
+  {
+    "id": "aim-lock",
+    "name": "AIM LOCK 🔫🔴",
+    "description": "50% todo capa ff 🔫🔥",
+    "version": "1.0.0",
+    "author": ".",
+    "category": "Module",
+    "icon": "🔫🔴",
+    "tags": [
+      "**ZIP:** https://github.com/Angel3197397/Module/raw/refs/heads/main/AIM%20LOCK.zip"
+    ],
+    "changelog": "Sin notas",
+    "downloadUrl": "./modules/aim-lock.zip",
+    "sha256": "4aba3e888844ba25ffa20becdfed593dd40cdb0d3ab54ad30a7b4b8c76792160",
+    "size": 10630,
+    "downloads": 0,
+    "updatedAt": "2026-10-20T02:59:56.991Z",
+    "authorRole": "creator",
+    "authorProfile": {
+      "displayName": "@pairixl",
+      "verified": true,
+      "verifiedAt": "2026-10-20T02:59:56.991Z",
+      "socials": {
+        "tiktok": "https://www.tiktok.com/@pairixl?_r=1&_t=ZS-9AfMSMO1ICj",
+        "youtube": "**Discord:**",
+        "discord": "**Telegram:**",
+        "telegram": "**WhatsApp:** https://whatsapp.com/channel/0029VbDcv2eJZg49jtJ0eX01",
+        "whatsapp": "https://whatsapp.com/channel/0029VbDcv2eJZg49jtJ0eX01"
+      }
+    }
   }
 ]
